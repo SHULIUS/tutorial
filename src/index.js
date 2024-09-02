@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css'
 
@@ -39,45 +39,69 @@ const Message = () => {
 
  */
 
-const FirstBook = {
+const firstBook = {
   author: ' Casey Means MD',
   title: 'Good Energy: The Surprising Connection Between Metabolism and Limitless Health',
   img: './images/book-1.jpg'
 }
-const SecondBook = {
+const secondBook = {
   author: 'Colleen Hoover',
   title: 'It Starts with Us: A Novel (It Ends with Us)',
   img: './images/book-2.jpg'
+}
+const thirdBook = {
+  author: 'Colleen Hoover',
+  title: 'It Ends with Us: A Novel (1)',
+  img: './images/book-3.jpg'
 }
 function BookList() {
   return (
     <section className='booklist'>
       <Book
-        author={FirstBook.author}
-        title={FirstBook.title}
-        img={FirstBook.img}
+        author={firstBook.author}
+        title={firstBook.title}
+        img={firstBook.img}
+      >
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque
+          repudiandae inventore eos qui animi sed iusto alias eius ea sapiente.
+        </p>
+        <button>click me</button>
+      </Book>
+      <Book
+        author={secondBook.author}
+        title={secondBook.title}
+        img={secondBook.img}
       />
       <Book
-        author={SecondBook.author}
-        title={SecondBook.title}
-        img={SecondBook.img}
+        author={thirdBook.author}
+        title={thirdBook.title}
+        img={thirdBook.img}
       />
     </section>
   );
 }
 const Book = (props) => {
+  const { img, title, author, children } = props;
   console.log(props);
   return (
     <article className='book'>
-      <img src={props.img} alt={props.title} />
-      <h2>{props.title}</h2>
-      <h4>{props.author} </h4>
+      <img src={img} alt={title} />
+      <h2>{title}</h2>
+      <h4>{author} </h4>
+      {children}
     </article>
-
   );
 };
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-root.render(<BookList />);
+root.render(
+  <>
+    <StrictMode>
+      <BookList />
+    </StrictMode>
+  </>
+
+);

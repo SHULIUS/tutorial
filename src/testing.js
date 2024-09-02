@@ -1,7 +1,9 @@
-export const testing = () => {
-  return (
-    <div>testing</div>
-  )
+
+const work = {
+  boss : 'Julian',
+  customers : 12,
+  workers: ['juan' , 'carlos']
+
 }
 
-
+console.log(work.workers[1])
