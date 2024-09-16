@@ -1,9 +1,20 @@
 
-const work = {
-  boss : 'Julian',
-  customers : 12,
-  workers: ['juan' , 'carlos']
+const people = [
+  {
+    name: 'julian',
+    lastname: 'Rodriguez ',
+    age: 22
+  },
+  {
+    name: 'oga',
+    lastname: 'Olaya ',
+    age: 47
+  },
+  {
+    name: 'sara',
+    lastname: 'Rodriguez ',
+    age: 24
+  }
+]
 
-}
-
-console.log(work.workers[1])
+console.log(people[0])

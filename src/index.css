@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 * {
     margin: 0;
     padding: 0;
@@ -10,6 +15,13 @@
     background: #f1f5f8;
     color: #222;
   }
+  @media screen and (min-width: 768px) {
+    .booklist {
+      grid-template-columns: repeat(3, 1fr);
+      align-items: start;
+    }
+  }
+
   .booklist {
     width: 90vw;
     max-width: 1170px;
@@ -17,21 +29,14 @@
     display: grid;
     gap: 2rem;
   }
-  
-  @media screen and (min-width: 768px) {
-    .booklist {
-      grid-template-columns: repeat(3, 1fr);
-      align-items: start;
-    }
-  }
-  .book p {
-    margin: 1rem 0 0.5rem;
-  }
+
   .book {
-    background: #fff;
+    background: #eee5e5;
     border-radius: 1rem;
     padding: 2rem;
     text-align: center;
+    width: 100%;
+    height: 100%;
   }
   .book img {
     width: 100%;
@@ -46,4 +51,48 @@
     font-size: 0.75rem;
     margin-top: 0.5rem;
     letter-spacing: 2px;
+  }
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .orbit > div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0 0;
+  }
+  
+  .orbit > div:nth-child(1) {
+    transform: rotate(0deg) translate(150px) rotate(0deg);
+  }
+  
+  .orbit > div:nth-child(2) {
+    transform: rotate(60deg) translate(150px) rotate(-60deg);
+  }
+  
+  .orbit > div:nth-child(3) {
+    transform: rotate(120deg) translate(150px) rotate(-120deg);
+  }
+  
+  .orbit > div:nth-child(4) {
+    transform: rotate(180deg) translate(150px) rotate(-180deg);
+  }
+  
+  .orbit > div:nth-child(5) {
+    transform: rotate(240deg) translate(150px) rotate(-240deg);
+  }
+  
+  .orbit > div:nth-child(6) {
+    transform: rotate(300deg) translate(150px) rotate(-300deg);
+  }
+  
+  
+  .animate-spin-slow {
+    animation: spin 30s linear infinite;
   }
